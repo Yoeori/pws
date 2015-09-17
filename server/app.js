@@ -1,18 +1,14 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+var Router = require("./router");
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+module.exports = {
+  server: undefined,
+  router: undefined,
 
-var router = express.Router();
+  init: function(server) {
+    this.server = server;
+    this.router = Router(require('express').Router(), this);
+    server.use(this.router);
+  }
 
-router.get('/', function(req, res) {
-    res.json({ message: 'This API is a work in progress' });
-});
 
-app.use('/api', router);
-
-var port = process.env.PORT || 3000;
-app.listen(port);
-console.log('Running on [::]:' + port);
+}
