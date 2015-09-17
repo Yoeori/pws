@@ -2,7 +2,7 @@ module.exports = {
 
   index: function(req, res) {
     res.header("Content-Type",'text/html');
-    res.send("<h1>Welcome!</h1>");
+    res.end("<h1>Welcome!</h1>");
   },
 
   api_index: function(req, res) {
@@ -10,6 +10,7 @@ module.exports = {
       message: 'welcome to the API, documentation: https://school.yoeori.nl/services/pws/docs',
       stable: 'v1'
     });
+    res.end();
   },
 
   api_v1: function(req, res) {
@@ -23,6 +24,7 @@ module.exports = {
         }
       ]
     });
+    res.end();
   }
 
 }
