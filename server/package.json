@@ -1,0 +1,23 @@
+{
+  "name": "server",
+  "version": "0.1.0",
+  "description": "Runs the server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yoeori/pws.git"
+  },
+  "author": "Yoeri Otten <yoeori@live.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yoeori/pws/issues"
+  },
+  "homepage": "https://github.com/Yoeori/pws#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "body-parser": "~1.0.1"
+  }
+}
