@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  host: localhost
+  port: 3306
+  username: user
+  password: password
+
+development:
+  <<: *default
+  database: pws_development
+
+test:
+  <<: *default
+  database: pws_test
+
+production:
+  <<: *default
+  database: pws

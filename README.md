@@ -1,1 +1,1 @@
-#PWS experiment: encrypted chat application
+#Profile Paper experiment: encrypted chat application

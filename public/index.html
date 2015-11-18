@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/site.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 header">
+          <div class="row">
+            <header class="col-md-4 col-lg-3">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">&#9776;</button>
+              <p class="pull-right">Secure chat</p>
+            </header>
+          </div>
+        </div>
+      </div>
+      <div class="row main">
+        <div class="col-lg-3 col-md-4" style="padding: 0; height: 100%;">
+          <div class="users-list">
+            <div class="collapse" id="navbar-header">
+              <div class="inverse p-a">
+                <h3>Collapsed content</h3>
+                <p>Toggleable via the navbar brand.</p>
+              </div>
+            </div>
+            <div class="user-small-info selected">
+              <div class="imagebox"></div>
+              <p class="name">Yoeri Otten<br /></p>
+            </div>
+            <div class="user-small-info">
+              <img id="box" class="imagebox"></img>
+              <p class="name">test user a<br /></p>
+            </div>
+            <div class="user-small-info">
+              <div class="imagebox"></div>
+              <p class="name">test user b<br />Ik heb een status.</p>
+            </div>
+            <div class="user-small-info">
+              <div class="imagebox"></div>
+              <p class="name">test user c<br /></p>
+            </div>
+            <div class="user-small-info">
+              <div class="imagebox"></div>
+              <p class="name">test user d<br /></p>
+            </div>
+            <center style="margin-top: 30px; margin-bottom: 30px;">
+              <button type="button" class="btn btn-blue-outline">add contact</button>
+            </center>
+          </div>
+        </div>
+        <div class="col-lg-9 col-md-8 chat">
+          <div class="chatbox">
+            <div class="message">
+              <div class="row">
+                <div class="col-xs-2">
+                  <i class="pull-right">Yoeri Otten</i>
+                </div>
+                <div class="col-xs-10">
+                  <p>Dit is een test bericht.</p>
+                </div>
+              </div>
+            </div>
+            <div class="message">
+              <div class="row">
+                <div class="col-xs-2">
+                  <i class="pull-right">Yoeri Otten</i>
+                </div>
+                <div class="col-xs-10">
+                  <p>Een bericht kan ook<br />meerdere<br />regels lang zijn.</p>
+                </div>
+              </div>
+            </div>
+            <div class="message own-message">
+              <div class="row">
+                <div class="col-xs-2">
+                  <i class="pull-right">Jij zelf</i>
+                </div>
+                <div class="col-xs-10">
+                  <p>Of van jezelf vandaan komen.</p>
+                </div>
+              </div>
+            </div>
+            <div class="message">
+              <div class="row">
+                <div class="col-xs-2">
+                  <i class="pull-right">Yoeri Otten</i>
+                </div>
+                <div class="col-xs-10">
+                  <p>Dat hoeft natuurlijk niet.</p>
+                  <p>Meerdere paragrafen zijn ook mogelijk maar wordt momenteel niet ondersteund door de client.</p>
+                </div>
+              </div>
+            </div>
+            <div class="message own-message">
+              <div class="row">
+                <div class="col-xs-2">
+                  <i class="pull-right">Jij zelf</i>
+                </div>
+                <div class="col-xs-10">
+                  <p>Maar het beste is toch eigenlijk wel dat alleen de juiste ontvanger het bericht ook daadwerkelijk kan ontcijferen en dus lezen.</p>
+                </div>
+              </div>
+            </div>
+            <div class="message">
+              <div class="row">
+                <div class="col-xs-2">
+                  <i class="pull-right">Yoeri Otten</i>
+                </div>
+                <div class="col-xs-10">
+                  <p>Zeker! En dit alles wordt ook lokaal in je browser opgeslagen.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="elements form-inline">
+              <input type="text" class="form-control textbox" placeholder="..." />
+              <button type="button" class="btn btn-blue-outline">send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="js/site.js"></script>
+    <script src="js/pnglib.js"></script>
+    <script src="js/identicon.js"></script>
+    <script src="js/pgp/openpgp.js"></script>
+    <script src="js/site.js"></script>
+  </body>
+</html>
