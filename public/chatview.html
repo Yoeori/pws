@@ -1,0 +1,43 @@
+<div class="col-lg-3 col-md-4" style="padding: 0; height: 100%;">
+  <div class="users-list">
+    <div class="collapse" id="navbar-header">
+      <div class="inverse p-a">
+        <h3>Collapsed content</h3>
+        <p>Toggleable via the navbar brand.</p>
+      </div>
+    </div>
+    {{#users}}
+    <div data-id="{{id}}" data-name="user" class="user-small-info {{#selected}}selected{{/selected}}">
+      <div class="imagebox"></div>
+      <p class="name">{{username}}<br /></p>
+    </div>
+    {{/users}}
+    <center style="margin-top: 30px; margin-bottom: 30px;">
+      <button type="button" id="addcontact" class="btn btn-blue-outline">add contact</button>
+    </center>
+  </div>
+</div>
+<div class="col-lg-9 col-md-8 chat">
+  <div class="chatbox" id="chatbox">
+    {{#messages}}
+    <div class="message{{#own}} own-message{{/own}}">
+      <div class="row">
+        <div class="col-xs-2">
+          <i class="pull-right">{{from}}</i>
+        </div>
+        <div class="col-xs-10">
+          <p>{{message}}</p>
+        </div>
+      </div>
+    </div>
+    {{/messages}}
+  </div>
+  <div class="box">
+    <form role="form" id="messageform" action="javascript:void(0);" method="post">
+    <div class="elements form-inline">
+      <input type="text" id="message" class="form-control textbox" placeholder="..." />
+      <button type="submit" class="btn btn-blue-outline">send</button>
+    </div>
+    </form>
+  </div>
+</div>
