@@ -17,8 +17,8 @@ ApiRequest.prototype = {
       return this;
     }
 
-    if(typeof this._url !== "undefined") return "/api/" + this._url;
-    else return "/api/";
+    if(typeof this._url !== "undefined") return "api/" + this._url;
+    else return "api/";
 
   },
 
