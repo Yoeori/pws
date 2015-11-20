@@ -2,7 +2,7 @@ class Api::UsersController < ApiController
 
   def index
     @users = User.all
-    if(params[:name].downcase)
+    if(params[:name])
       @users = @users.where("username LIKE ?" , "%#{params[:name].downcase}%")
     end
   end
