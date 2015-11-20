@@ -114,7 +114,7 @@ function show_chat_view_from_id(user_id) {
   setup_add_contact_button_and_user_buttons();
   $("#chatbox").scrollTop(2000); //TODO change this
   current_user_id = user.id;
-
+  
   //TODO sending form
   $("#messageform").submit(function() {
     $("#message").prop("disabled", true);
@@ -144,6 +144,7 @@ function setup_add_contact_button_and_user_buttons() {
       var request = new ApiRequest();
       request.url("users?name=" + encodeURIComponent(name));
       request.run().then(function(result) {
+        //TODO console.log(openpgp.key.readArmored(user.pubkey).keys[0].primaryKey.fingerprint); implement identicon
         if(result.users.length >= 1) {
           var new_contact = result.users[0];
           new_contact.history = [];

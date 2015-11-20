@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.5'
 gem 'mysql2'
+gem "nokogiri", ">= 1.6.7.rc"
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -20,6 +21,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 
 group :development, :test do
   gem 'byebug'
