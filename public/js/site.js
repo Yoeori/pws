@@ -20,7 +20,7 @@ function register_user() {
     openpgp.generateKeyPair(options).then(function(keypair) {
         console.log("generated keypair");
         savedata.keypair = keypair;
-        
+
         var registerreq = new ApiRequest();
         registerreq.url("users?key="+encodeURIComponent(savedata.keypair.publicKeyArmored)+"&name="+encodeURIComponent(username)).method("post");
 
@@ -114,7 +114,7 @@ function show_chat_view_from_id(user_id) {
   setup_add_contact_button_and_user_buttons();
   $("#chatbox").scrollTop(2000); //TODO change this
   current_user_id = user.id;
-  
+
   //TODO sending form
   $("#messageform").submit(function() {
     $("#message").prop("disabled", true);
@@ -148,6 +148,7 @@ function setup_add_contact_button_and_user_buttons() {
         if(result.users.length >= 1) {
           var new_contact = result.users[0];
           new_contact.history = [];
+          new_contact.image = new Identicon(openpgp.key.readArmored(new_contact.pubkey).keys[0].primaryKey.fingerprint, 100).toString();
           savedata.contacts.push(new_contact);
           save();
           after_initialization();

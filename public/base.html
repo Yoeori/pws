@@ -7,8 +7,8 @@
       </div>
     </div>
     {{#users}}
-    <div data-id="{{id}}" data-name="user" class="user-small-info">
-      <div class="imagebox"></div>
+    <div data-id="{{id}}" data-name="user" class="user-small-info {{#selected}}selected{{/selected}}">
+      <img class="imagebox" src="data:image/png;base64,{{image}}"/>
       <p class="name">{{username}}<br /></p>
     </div>
     {{/users}}
