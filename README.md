@@ -21,6 +21,7 @@ $ git clone https://github.com/Yoeori/pws.git
 $ cd pws
 $ bundle install
 $ cp ./config/database.example.yml ./config/database.yml
+$ rake db:migrate
 $ rails server
 ```
 You should now be able to connect via [http://localhost:3000](http://localhost:3000).
