@@ -100,12 +100,6 @@ html, body {
   height: 100%;
   padding: 0;
 }
-@media(max-width: 991px) {
-  .chat {
-    visibility: hidden;
-    display: none;
-  }
-}
 .chat > .chatbox {
   height: calc(100% - 66px);
   max-height: calc(100% - 66px);

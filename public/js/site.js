@@ -110,7 +110,7 @@ function show_chat_view_from_id(user_id) {
     }
   }
 
-  view.render("chatview", {users: contacts, messages: user.history});
+  view.render("chatview", {users: contacts, messages: user.history, mobile:mobile});
   setup_add_contact_button_and_user_buttons();
   $("#chatbox").scrollTop(2000); //TODO change this
   current_user_id = user.id;
@@ -124,7 +124,7 @@ function show_chat_view_from_id(user_id) {
 
 function after_initialization() {
 
-  view.render("base", {users: savedata.contacts});
+  view.render("base", {users: savedata.contacts, mobile:mobile});
   setup_add_contact_button_and_user_buttons();
 
   interval = setInterval(function() {
@@ -135,7 +135,7 @@ function after_initialization() {
 
 function setup_add_contact_button_and_user_buttons() {
   $("#addcontact").click(function() {
-    view.render("add_contact", {users: savedata.contacts});
+    view.render("add_contact", {users: savedata.contacts, mobile:mobile});
     $("#addcontactform").submit(function() {
 
       $("#errormessage").addClass("hidden");
