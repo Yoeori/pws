@@ -1,4 +1,4 @@
-var savedata = {}, view, current_user_id, interval;
+var savedata = {}, view, current_user_id, interval, mobile;
 
 function register_user() {
   view.render("username");
@@ -200,6 +200,10 @@ function destroy() {
 }
 
 function initialize() {
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    mobile = true;
+   console.log('detected mobile device.')
+  }
   view = Object.create(ViewManager);
   view.initialize(function() {
     if(localStorage.getItem("data") != null) {
