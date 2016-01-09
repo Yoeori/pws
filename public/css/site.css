@@ -33,6 +33,12 @@ html, body {
   font-size: 31px;
   margin-top: -1px;
 }
+@media(max-width: 991px) {
+  header > .visible-xs, header > .visible-sm {
+    display: inline!important;
+  }
+}
+
 .header button:hover {
   opacity: 0.7;
 }
@@ -47,6 +53,11 @@ html, body {
   background-color: #fff;
   border-left: 2px rgb(0, 31, 63) solid;
   border-right: 2px rgb(0, 31, 63) solid;
+}
+@media(max-width: 991px) {
+  .main {
+    border: 0;
+  }
 }
 
 /* left sidebar */
@@ -139,4 +150,8 @@ html, body {
     color: #7FDBFF;
     background-color: #001f3f;
     border-color: #001f3f;
+}
+.invisible {
+  display: none!important;
+  visibility: hidden!important;
 }
