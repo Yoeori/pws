@@ -33,6 +33,12 @@ html, body {
   font-size: 31px;
   margin-top: -1px;
 }
+@media(max-width: 991px) {
+  header > .visible-xs, header > .visible-sm {
+    display: inline!important;
+  }
+}
+
 .header button:hover {
   opacity: 0.7;
 }
@@ -55,11 +61,6 @@ html, body {
   height: 100%;
   max-height: 100%;
   border-right: rgb(0, 31, 63) 2px solid;
-}
-@media(max-width: 991px) {
-  .users-list {
-    border-right: 0;
-  }
 }
 .user-small-info {
   width: 100%;
@@ -100,12 +101,6 @@ html, body {
   height: 100%;
   padding: 0;
 }
-@media(max-width: 991px) {
-  .chat {
-    visibility: hidden;
-    display: none;
-  }
-}
 .chat > .chatbox {
   height: calc(100% - 66px);
   max-height: calc(100% - 66px);
@@ -116,14 +111,12 @@ html, body {
 .chat > .box {
   width: 100%;
   border-top: rgb(0, 31, 63) 2px solid;
+  padding: 15px 15px;
 }
 .elements {
   margin-top: 15px;
   margin-left: 15px;
   width: calc(100% - 30px);
-}
-.elements > .textbox {
-  width:  calc(100% - 62px);
 }
 .chatbox > .message {
   width: 100%;
@@ -147,4 +140,21 @@ html, body {
     color: #7FDBFF;
     background-color: #001f3f;
     border-color: #001f3f;
+}
+.invisible {
+  display: none!important;
+  visibility: hidden!important;
+}
+
+/* mobile */
+@media(max-width: 991px) {
+  .main {
+    border: 0;
+  }
+  .chatbox > .message {
+    padding: 10px 10px 0px 10px;
+  }
+  .users-list {
+    border-right: 0;
+  }
 }

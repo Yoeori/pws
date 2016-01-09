@@ -1,4 +1,4 @@
-var savedata = {}, view, current_user_id, interval;
+var savedata = {}, view, current_user_id, interval, mobile;
 
 function register_user() {
   view.render("username");
@@ -13,7 +13,7 @@ function register_user() {
 
     //Generate key pair
     var options = {
-        numBits: 2048,
+        numBits: mobile ? 1024 : 2048,
         userId: username + ' <' + username + '@pws.yoeori.nl>',
     };
 
@@ -59,7 +59,7 @@ function send_message(user, un_message) {
   });
 }
 
-  function receive_messages() {
+function receive_messages() {
   var request = new ApiRequest();
   request.url("messages?token="+ encodeURIComponent(savedata.token));
   request.run().then(function(result) {
@@ -109,8 +109,8 @@ function show_chat_view_from_id(user_id) {
       contacts[i].selected = true;
     }
   }
-
-  view.render("chatview", {users: contacts, messages: user.history});
+  setup_back_button(function() {show_base_page()});
+  view.render("chatview", {users: contacts, messages: user.history, mobile:mobile});
   setup_add_contact_button_and_user_buttons();
   $("#chatbox").scrollTop(2000); //TODO change this
   current_user_id = user.id;
@@ -124,8 +124,7 @@ function show_chat_view_from_id(user_id) {
 
 function after_initialization() {
 
-  view.render("base", {users: savedata.contacts});
-  setup_add_contact_button_and_user_buttons();
+  show_base_page();
 
   interval = setInterval(function() {
     receive_messages();
@@ -133,9 +132,16 @@ function after_initialization() {
 
 }
 
+function show_base_page() {
+  disable_back_button();
+  view.render("base", {users: savedata.contacts, mobile:mobile});
+  setup_add_contact_button_and_user_buttons();
+}
+
 function setup_add_contact_button_and_user_buttons() {
   $("#addcontact").click(function() {
-    view.render("add_contact", {users: savedata.contacts});
+    setup_back_button(function() {show_base_page()});
+    view.render("add_contact", {users: savedata.contacts, mobile:mobile});
     $("#addcontactform").submit(function() {
 
       $("#errormessage").addClass("hidden");
@@ -144,7 +150,6 @@ function setup_add_contact_button_and_user_buttons() {
       var request = new ApiRequest();
       request.url("users?name=" + encodeURIComponent(name));
       request.run().then(function(result) {
-        //TODO console.log(openpgp.key.readArmored(user.pubkey).keys[0].primaryKey.fingerprint); implement identicon
         if(result.users.length >= 1) {
           var new_contact = result.users[0];
           new_contact.history = [];
@@ -165,6 +170,18 @@ function setup_add_contact_button_and_user_buttons() {
       show_chat_view_from_id(id);
     })
   });
+}
+
+var back_button_callback = null;
+function setup_back_button(callback_when_pressed) {
+  back_button_callback = callback_when_pressed;
+  $('#nav-toggle').addClass('invisible');
+  $('#button_back').removeClass('invisible');
+}
+
+function disable_back_button() {
+  $('#button_back').addClass('invisible');
+  $('#nav-toggle').removeClass('invisible');
 }
 
 function save() {
@@ -200,6 +217,10 @@ function destroy() {
 }
 
 function initialize() {
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    mobile = true;
+    console.log('detected mobile device.')
+  }
   view = Object.create(ViewManager);
   view.initialize(function() {
     if(localStorage.getItem("data") != null) {
@@ -207,6 +228,11 @@ function initialize() {
     } else {
       register_user();
     }
+
+    $('#button_back').click(function() {
+      if(typeof back_button_callback === 'function') back_button_callback();
+    });
+
   });
 }
 

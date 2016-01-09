@@ -1,4 +1,5 @@
-<div class="col-lg-3 col-md-4" style="padding: 0; height: 100%;">
+{{^mobile}}
+<div class="col-lg-3 col-md-4 hidden-sm hidden-xs" style="padding: 0; height: 100%;">
   <div class="users-list">
     <div class="collapse" id="navbar-header">
       <div class="inverse p-a">
@@ -17,15 +18,16 @@
     </center>
   </div>
 </div>
+{{/mobile}}
 <div class="col-lg-9 col-md-8 chat">
   <div class="chatbox" id="chatbox">
     {{#messages}}
     <div class="message{{#own}} own-message{{/own}}">
       <div class="row">
-        <div class="col-xs-2">
+        <div class="col-md-2">
           <i class="pull-right">{{from}}</i>
         </div>
-        <div class="col-xs-10">
+        <div class="col-md-10">
           <p>{{message}}</p>
         </div>
       </div>
@@ -34,10 +36,16 @@
   </div>
   <div class="box">
     <form role="form" id="messageform" action="javascript:void(0);" method="post">
-    <div class="elements form-inline">
-      <input type="text" id="message" class="form-control textbox" placeholder="..." />
-      <button type="submit" class="btn btn-blue-outline">send</button>
-    </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <input type="text" class="form-control textbox" id="message" placeholder="...">
+            <span class="input-group-btn">
+              <button class="btn btn-blue-outline" type="submit">send</button>
+            </span>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </div>
