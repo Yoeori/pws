@@ -54,11 +54,6 @@ html, body {
   border-left: 2px rgb(0, 31, 63) solid;
   border-right: 2px rgb(0, 31, 63) solid;
 }
-@media(max-width: 991px) {
-  .main {
-    border: 0;
-  }
-}
 
 /* left sidebar */
 .users-list {
@@ -66,11 +61,6 @@ html, body {
   height: 100%;
   max-height: 100%;
   border-right: rgb(0, 31, 63) 2px solid;
-}
-@media(max-width: 991px) {
-  .users-list {
-    border-right: 0;
-  }
 }
 .user-small-info {
   width: 100%;
@@ -154,4 +144,17 @@ html, body {
 .invisible {
   display: none!important;
   visibility: hidden!important;
+}
+
+/* mobile */
+@media(max-width: 991px) {
+  .main {
+    border: 0;
+  }
+  .chatbox > .message {
+    padding: 10px 10px 0px 10px;
+  }
+  .users-list {
+    border-right: 0;
+  }
 }
