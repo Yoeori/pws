@@ -48,6 +48,10 @@ function register_user() {
 }
 
 function send_message(user, un_message) {
+  if(un_message == "") {
+    show_chat_view_from_id(user.id);
+    return;
+  }
   openpgp.signAndEncryptMessage(openpgp.key.readArmored(user.pubkey).keys, savedata.keypair.key, un_message).then(function(message) {
     var send = new ApiRequest();
     send.url("/messages?token="+encodeURIComponent(savedata.token)+"&message="+encodeURIComponent(message)+"&user_id="+encodeURIComponent(user.id)).method("post")
@@ -81,7 +85,7 @@ function add_encrypted_message_for_user_id(user_id, message) {
   }
   //TODO fix signing issue
   openpgp.decryptMessage(savedata.keypair.key, openpgp.message.readArmored(message)).then(function(message) {
-    add_message_for_user_id(user_id, message);
+    if(message != "") add_message_for_user_id(user_id, message);
   });
 }
 
@@ -89,7 +93,7 @@ function add_message_for_user_id(user_id, message) {
   for(var i = 0; i < savedata.contacts.length; i++) {
     if(savedata.contacts[i].id == user_id) {
       user = savedata.contacts[i];
-      user.history.push({from: user.username, message:message});
+      if(message != "") user.history.push({from: user.username, message:message});
     }
   }
   if(current_user_id == user_id && view.current == "chatview") {
