@@ -141,13 +141,13 @@ html, body {
     background-color: #001f3f;
     border-color: #001f3f;
 }
-.invisible {
-  display: none!important;
-  visibility: hidden!important;
-}
 
 /* mobile */
 @media(max-width: 991px) {
+  .small-invisible {
+    display: none!important;
+    visibility: hidden!important;
+  }
   .main {
     border: 0;
   }

@@ -175,13 +175,13 @@ function setup_add_contact_button_and_user_buttons() {
 var back_button_callback = null;
 function setup_back_button(callback_when_pressed) {
   back_button_callback = callback_when_pressed;
-  $('#nav-toggle').addClass('invisible');
-  $('#button_back').removeClass('invisible');
+  $('#nav-toggle').addClass('small-invisible');
+  $('#button_back').removeClass('small-invisible');
 }
 
 function disable_back_button() {
-  $('#button_back').addClass('invisible');
-  $('#nav-toggle').removeClass('invisible');
+  $('#button_back').addClass('small-invisible');
+  $('#nav-toggle').removeClass('small-invisible');
 }
 
 function save() {
